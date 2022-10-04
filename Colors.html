@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // Have each button change the color of the heading
+            document.querySelectorAll('.color-change').forEach(button => {
+                button.onclick = () => {
+                    document.querySelector('#hello').style.color = button.dataset.color;
+                };
+            });
+
+        });
+    </script>
+    <script>
+
+        document.querySelector('form').onsubmit = () => {
+
+            // Create new item for list
+            const li = document.createElement('li');
+            li.innerHTML = document.querySelector('#hello').value;
+
+            // Add new item to  list
+            document.querySelector('#hello').append(li);
+
+            // Clear input field and disable button again
+            document.querySelector('#hello').value = '';
+            document.querySelector('#submit').disabled = true;
+
+            // Stop form from submitting
+            return false;
+        };
+
+    </script>
+    <title>Colors</title>
+</head>
+
+<body>
+    <ul id="hello">
+        Hello World!
+    </ul>
+    <button class="color-change" data-color="red">Red</button>
+    <button class="color-change" data-color="blue">Blue</button>
+    <button class="color-change" data-color="green">Green</button>
+    <button class="color-change" data-color="orange">Orange</button>
+    <button class="color-change" data-color="pink">Pink</button>
+    <button class="color-change" data-color="cyan">Cyan</button>
+</body>
+
+</html>
